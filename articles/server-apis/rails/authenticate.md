@@ -95,17 +95,6 @@ In `config/initializer/knock.rb`, uncomment the following lines:
 config.token_audience = -> { Rails.application.secrets.auth0_client_id }
 ```
 
-```ruby
-require 'base64'
-
-# extracted from original [method](http://www.rubydoc.info/github/jwt/ruby-jwt/JWT.base64url_decode)
-config.token_secret_signature_key = -> {
-    secret = Rails.application.secrets.auth0_client_secret
-    secret += '=' * (4 - secret.length.modulo(4))
-    Base64.decode64(secret.tr('-_', '+/'))
-  }
-```
-
 ### 4. Call Your API
 You can now make requests against your secure API by providing the Authorization header in your requests with a valid JWT id_token.
 ```har

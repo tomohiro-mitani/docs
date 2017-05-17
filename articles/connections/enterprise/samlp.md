@@ -5,6 +5,7 @@ image: /media/connections/saml.png
 alias:
   - saml
 seo_alias: samlp
+toc: true
 description: Connecting SAML Providers with Auth0
 ---
 
